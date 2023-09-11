@@ -44,7 +44,19 @@ To play the Dice Game, follow these steps:
 Have fun and may the best player win!
 
 ## How to Setup ?
- npm i
+
+install the depedencies
+
+```
+npm i
+```
+
+enter live-server on your terminal
+
+```
+live-server
+```
+
 ## Contributing
 
 We welcome contributions to improve and expand the betmyfood project. If you have ideas for new features, bug fixes, or enhancements, please feel free to contribute.
