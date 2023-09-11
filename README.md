@@ -12,6 +12,7 @@ Welcome to the Dice Game open-source project! This is a fun and competitive game
   - [Game Overview](#game-overview)
   - [Rules](#rules)
   - [Getting Started](#getting-started)
+  - [How to Setup ?](#how-to-setup-)
   - [Contributing](#contributing)
   - [License](#license)
 
@@ -42,6 +43,8 @@ To play the Dice Game, follow these steps:
 
 Have fun and may the best player win!
 
+## How to Setup ?
+ npm i
 ## Contributing
 
 We welcome contributions to improve and expand the betmyfood project. If you have ideas for new features, bug fixes, or enhancements, please feel free to contribute.
