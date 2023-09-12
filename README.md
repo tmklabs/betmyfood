@@ -54,7 +54,7 @@ npm i
 enter live-server on your terminal
 
 ```
-live-server
+npm run dev
 ```
 
 ## Contributing
