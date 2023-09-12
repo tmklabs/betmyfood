@@ -4,11 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>betMyFood</title>
-    <script type="module" src="./js/main.js"></script>
+    <script defer type="module" src="./js/main.js"></script>
 </head>
 <body>
-    <h1 class="text-center">Coming Soon</h1>
-    <a href="https://tmklabs.com">Contact us</a>
+
+    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            
+            <div class="modal-body">
+
+                <form action="">
+                    <div id="step1">
+                Hi, Good Evening, Before beginnig, May I know your names?
+
+                        <input type="text" class="form-control" id="player1" placeholder="Enter Player1 Name">
+                        <input type="text" class="form-control my-2" id="player2" placeholder="Enter Player2 Name">
+                    
+                    <button class="btn btn-success mx-auto" id="nextBtn" type="button">Next</button>
+                    </div>
+
+                    <div id="step2">
+                        <p id="step2Text"></p>
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Select Your Option</option>
+                            <option value="1">Veggie Burger 🍔</option>
+                            <option value="2">Veggie Sandwich 🥪</option>
+                            <option value="3">TMK Pizza 🍕</option>
+                            <option value="3">Cafe Bill 💵</option>
+                            <option value="3">Sing a song 🎶</option>
+                            <option value="3">Dance</option>
+                          </select>
+                          <button class="btn btn-danger mx-auto" id="submitBtn" type="button">Next</button>
+
+                    </div>
+
+                    <div id="step3">
+                        <p id="step3Text">
+
+                        </p>
+                        <button class="btn btn-danger mx-auto" id="beginBtn" type="submit">Begin</button>
+
+                        
+                    </div>
+
+                </form>
+
+            </div>
+           
+          </div>
+        </div>
+
+
+      </div>
+      
+      <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first modal</button>
+   
+      
+      <h1 class="text-center">let the game begin</h1>
    
 </body>
 </html>
