@@ -57,7 +57,7 @@ const finalStep = () => {
   step2.style.display = "none";
   step3.style.display = "block";
   step3Text.textContent = `
-    Hey ${p1Name} and ${p2Name}The first to reach 100 score wins the game
+    Hey ${p1Name} and ${p2Name}The first to reach 50 score wins the game
      and throughout your game, the algo will monitor your dice and at any
       given time, if you get 1 on your dice, 
       your entire score will be halved and dice will shifted. so in case you want to be safe side, 
@@ -112,7 +112,7 @@ const switchPlayerTo = (currentplayer) => {
   document.getElementById(
     "player-" + activePlayer + "-total-score"
   ).textContent = totalScore[activePlayer - 1];
-  if (totalScore[activePlayer - 1] >= 10) {
+  if (totalScore[activePlayer - 1] >= 50) {
     gameStep.style.display = "none";
     let winner, opponent;
     if (activePlayer == 1) {
