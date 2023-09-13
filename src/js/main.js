@@ -14,6 +14,8 @@ let step1 = document.getElementById("step1");
 let step2 = document.getElementById("step2");
 let step3 = document.getElementById("step3");
 let gameStep = document.getElementById("gameStep");
+let resultStep = document.getElementById("resultStep");
+
 let step2Text = document.getElementById("step2Text");
 let step3Text = document.getElementById("step3Text");
 let nextBtn = document.getElementById("nextBtn");
@@ -35,6 +37,8 @@ step2.style.display = "none";
 step3.style.display = "none";
 
 gameStep.style.display = "none";
+resultStep.style.display = "none";
+
 player2Status.style.display = "none";
 console.log(p1Name, p2Name);
 
