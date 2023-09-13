@@ -5,16 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>betMyFood</title>
     
-  <script type="module" crossorigin src="/assets/index-00063022.js"></script>
+  <script type="module" crossorigin src="/assets/index-fbd58dfb.js"></script>
   <link rel="stylesheet" href="/assets/index-bde0832e.css">
 </head>
 <body>
     <div class="container-fluid" id="welcomepage">
-        <div >
+        <div class="">
         <h1 class="fw-bold">Welcome to TMK Games</h1>
-        <h3 class="text-center text-success fw-bold">betMyFood</h3>
-        <button class="btn btn-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Start the Game</button>
+        <h3 class="text-center text-success fw-bold">betMy<span class="btn-yellow">Food</span></h3>
+        <div class="d-flex justify-content-center">
+            <button class="btn btn-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Start the Game</button>
         </div>
+
+    </div>
+   
 </div>
 
     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
@@ -33,7 +37,7 @@
                     <div id="step1">
                 Hi, Good Evening, Before beginnig, May I know your names?
 
-                        <input type="text" class="form-control" id="player1" placeholder="Enter Player1 Name">
+                        <input type="text" class="form-control" id="player1"  placeholder="Enter Player1 Name">
                         <input type="text" class="form-control my-2" id="player2" placeholder="Enter Player2 Name">
                     
                     <button class="btn btn-success mx-auto" id="nextBtn" type="button">Next</button>
@@ -80,14 +84,13 @@
                 <div id="" class="col-12 display-3 col-sm-3 h3 text-center d-flex justify-content-center align-items-center">
                     <div>
                     <h3 id="player1Name" class="fw-bold display-4 text-success">Rohil</h3>
-                    <h5 class="fw-bold h4">Current Score: <span id="player-1-total-score">100</span>  </h5>
-                    <h5 class="fw-bold h4">Total Score: <span id="player-2-total-score">-200</span> </h5>
-
+                    <h5 class="fw-bold h4">Current Score: <span id="player-1-current-score">0</span>  </h5>
+                    <h5 class="fw-bold h4">Total Score: <span id="player-1-total-score">0</span> </h5>
                     <img id="diceImage1" src="/assets/1-97fa746e.png" height="100" alt="">
                    
                     <div id="player-1-status">
-                        <button id="rollBtn" class="fw-bold btn btn-success" type="button">Roll</button>
-                        <button id="passBtn" class="fw-bold btn btn-yellow" type="button">Pass</button>
+                        <button id="" class="rollBtn fw-bold btn btn-success" type="button">Roll</button>
+                        <button  class="passBtn fw-bold btn btn-yellow" type="button">Pass</button>
                     </div>
                 </div>
              
@@ -104,20 +107,43 @@
                 <div class="col-12 display-3 col-sm-3 h3 text-center d-flex justify-content-center align-items-center">
                     <div>
                     <h3  id="player2Name" class="fw-bold display-4 text-success"></h3>
-                    <h5 class="fw-bold h4">Current Score: <span id="player-1-total-score">60</span>  </h5>
-                    <h5 class="fw-bold h4">Total Score: <span id="player-2-total-score">90</span> </h5>
+                    <h5 class="fw-bold h4">Current Score: <span id="player-2-current-score">0</span>  </h5>
+                    <h5 class="fw-bold h4">Total Score: <span id="player-2-total-score">0</span> </h5>
 
                     <img id="diceImage2" src="/assets/3-a122adb2.png" height="100" alt="">
                    
                     <div id="player-2-status">
-                        <button id="rollBtn" class="fw-bold btn btn-success" type="button">Roll</button>
-                        <button id="passBtn" class="fw-bold btn btn-yellow" type="button">Pass</button>
+                        <button id="" class="rollBtn fw-bold btn btn-success" type="button">Roll</button>
+                        <button class="passBtn fw-bold btn btn-yellow" type="button">Pass</button>
                     </div>                </div>
                 </div>
             </div>
         </div>
       </div>
       
+      <div id="resultStep">
+        <div class="text-center">
+            <h3 class="fw-bold">Congrats <span id="winner"></span>!
+
+                <br> You have won the match!
+                 
+                 <br> Now you can Ask/Fight/Argue with
+                 
+                 <span class="opponent"></span> and get  your
+                 
+                 <span id="wonRecipe"></span></h3>
+                 
+                 <br>
+ 
+                 Choice is yours, either you DineIn here or Deliver it to your home, make sure <span class="opponent"></span> gifts it for you.
+                 Happy <span id="wishes"></span>   
+                 
+                 <a href="https://tmkstores.com/" class="btn btn-success btn-small fw-bold">Schedule my Food Delivery</a>
+                 <a href="https://tmkcafe.petpooja.com/menu" class="btn btn-yellow fw-bold btn-small">DineIn </a>
+            <button class="btn btn-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Play Again</button>
+
+        </div>
+      </div>
    
       
    

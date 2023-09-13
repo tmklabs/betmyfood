@@ -20,19 +20,21 @@ let nextBtn = document.getElementById("nextBtn");
 let submitBtn = document.getElementById("submitBtn");
 let beginBtn = document.getElementById("beginBtn");
 let diceImage1 = document.getElementById("diceImage1");
-let rollBtn = document.getElementById("rollBtn");
-let passBtn = document.getElementById("passBtn");
+let rollBtn = document.getElementsByClassName("rollBtn");
+let passBtn = document.getElementsByClassName("passBtn");
 
 let player1Status = document.getElementById("player-1-status");
 let player2Status = document.getElementById("player-2-status");
+let activePlayer = 1;
+let temp_score = 0;
+let totalScore = [0, 0];
 
 let p1Name;
 let p2Name;
 step2.style.display = "none";
 step3.style.display = "none";
-welcomepage.style.display = "none";
 
-gameStep.style.display = "block";
+gameStep.style.display = "none";
 player2Status.style.display = "none";
 console.log(p1Name, p2Name);
 
@@ -61,22 +63,89 @@ const finalStep = () => {
 };
 
 const beginGame = () => {
+  welcomepage.style.display = "none";
   gameStep.style.display = "block";
   player1Name.textContent = p1Name;
   player2Name.textContent = p2Name;
 };
 const changeDice = () => {
-  diceImage1.classList.add("rolling");
+  console.log("active palyer is", activePlayer);
+  let diceImage = document.getElementById("diceImage" + activePlayer);
+  diceImage.classList.add("rolling");
   let dice_no = Math.floor(Math.random() * 6);
-  let image = `../images/${dice_no + 1}.png`;
-  diceImage1.setAttribute("src", image);
-  console.log(dice_no + 1);
-  diceImage1.classList.remove("rolling");
+  dice_no = dice_no + 1;
+  if (dice_no == 1) {
+    totalScore[activePlayer - 1] = totalScore[activePlayer - 1] + temp_score;
+
+    temp_score = 0;
+    document.getElementById(
+      "player-" + activePlayer + "-current-score"
+    ).textContent = temp_score;
+    document.getElementById(
+      "player-" + activePlayer + "-total-score"
+    ).textContent = totalScore[activePlayer - 1];
+    activePlayer == 1 ? switchPlayerTo(2) : switchPlayerTo(1);
+  } else {
+    temp_score = temp_score + dice_no;
+    document.getElementById(
+      "player-" + activePlayer + "-current-score"
+    ).textContent = temp_score;
+    console.log("else temp score", temp_score);
+  }
+  let image = `../images/${dice_no}.png`;
+  diceImage.setAttribute("src", image);
+  console.log(dice_no);
+  diceImage.classList.remove("rolling");
 };
 
-const switchPlayer = () => {
-  console.log("hello");
-  if (player1Status.style.display == "none") {
+const switchPlayerTo = (currentplayer) => {
+  totalScore[activePlayer - 1] = totalScore[activePlayer - 1] + temp_score;
+  temp_score = 0;
+  console.log("temp score", temp_score);
+  document.getElementById(
+    "player-" + activePlayer + "-current-score"
+  ).textContent = temp_score;
+  document.getElementById(
+    "player-" + activePlayer + "-total-score"
+  ).textContent = totalScore[activePlayer - 1];
+  if (totalScore[activePlayer - 1] >= 10) {
+    gameStep.style.display = "none";
+    let winner, opponent;
+    if (activePlayer == 1) {
+      winner = p1Name;
+      opponent = p2Name;
+    } else {
+      winner = p2Name;
+      opponent = p1Name;
+    }
+    console.log("winner", winner, activePlayer);
+
+    document.getElementById("winner").textContent = winner;
+    let opponents = document.getElementsByClassName("opponent");
+    document.getElementById("wonRecipe").textContent = betRecipe.value;
+    for (var i = 0; i < opponents.length; i++) {
+      opponents[i].textContent = opponent;
+    }
+
+    var currentDate = new Date();
+
+    var currentHour = currentDate.getHours();
+    var wishes;
+    if (currentHour >= 5 && currentHour < 12) {
+      wishes = "Morning";
+    } else if (currentHour >= 12 && currentHour < 17) {
+      wishes = "Afternoon";
+    } else if (currentHour >= 17 && currentHour < 21) {
+      wishes = "Evening";
+    } else {
+      wishes = "Night";
+    }
+    document.getElementById("wishes").textContent = wishes;
+  }
+  activePlayer = currentplayer;
+
+  console.log("shifiting to player", activePlayer);
+  if (activePlayer == 1) {
     player1Status.style.display = "block";
     player2Status.style.display = "none";
   } else {
@@ -88,5 +157,11 @@ const switchPlayer = () => {
 nextBtn.addEventListener("click", nextStep);
 submitBtn.addEventListener("click", finalStep);
 beginBtn.addEventListener("click", beginGame);
-rollBtn.addEventListener("click", changeDice);
-passBtn.addEventListener("click", switchPlayer);
+rollBtn[0].addEventListener("click", changeDice);
+rollBtn[1].addEventListener("click", changeDice);
+passBtn[0].addEventListener("click", function () {
+  switchPlayerTo(2);
+});
+passBtn[1].addEventListener("click", function () {
+  switchPlayerTo(1);
+});
