@@ -5,14 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>betMyFood</title>
     
-  <script type="module" crossorigin src="/assets/index-54adb686.js"></script>
-  <link rel="stylesheet" href="/assets/index-f3a4110f.css">
+  <script type="module" crossorigin src="/assets/index-00063022.js"></script>
+  <link rel="stylesheet" href="/assets/index-bde0832e.css">
 </head>
 <body>
+    <div class="container-fluid" id="welcomepage">
+        <div >
+        <h1 class="fw-bold">Welcome to TMK Games</h1>
+        <h3 class="text-center text-success fw-bold">betMyFood</h3>
+        <button class="btn btn-success" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Start the Game</button>
+        </div>
+</div>
 
     <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered">
           <div class="modal-content">
+
+            <div class="d-flex justify-content-between p-2">
+                <h4>BetMyFood</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+            </div>
             
             <div class="modal-body">
 
@@ -28,25 +41,23 @@
 
                     <div id="step2">
                         <p id="step2Text"></p>
-                        <select class="form-select" aria-label="Default select example">
+                        <select class="form-select" id="betRecipe" aria-label="Default select example">
                             <option selected>Select Your Option</option>
-                            <option value="1">Veggie Burger 🍔</option>
-                            <option value="2">Veggie Sandwich 🥪</option>
-                            <option value="3">TMK Pizza 🍕</option>
-                            <option value="3">Cafe Bill 💵</option>
-                            <option value="3">Sing a song 🎶</option>
-                            <option value="3">Dance</option>
+                            <option value="Burger">Veggie Burger 🍔</option>
+                            <option value="Sandwich">Cheese Sandwich 🥪</option>
+                            <option value="TMK Pizza">TMK Pizza 🍕</option>
+                            <option value="Cafe Bill">Cafe Bill 💵</option>
+                            <option value="Sing a song">Sing a song 🎶</option>
+                            <option value="Dance">Dance</option>
                           </select>
                           <button class="btn btn-danger mx-auto" id="submitBtn" type="button">Next</button>
-
                     </div>
 
                     <div id="step3">
                         <p id="step3Text">
 
                         </p>
-                        <button class="btn btn-danger mx-auto" id="beginBtn" type="submit">Begin</button>
-
+                        <button data-bs-dismiss="modal" class="btn btn-danger mx-auto" id="beginBtn" type="button">Begin</button>
                         
                     </div>
 
@@ -59,11 +70,56 @@
 
 
       </div>
+
+      <div id="gameStep">
+        <div class="container">
       
-      <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Open first modal</button>
+
+            <div class="row">
+                
+                <div id="" class="col-12 display-3 col-sm-3 h3 text-center d-flex justify-content-center align-items-center">
+                    <div>
+                    <h3 id="player1Name" class="fw-bold display-4 text-success">Rohil</h3>
+                    <h5 class="fw-bold h4">Current Score: <span id="player-1-total-score">100</span>  </h5>
+                    <h5 class="fw-bold h4">Total Score: <span id="player-2-total-score">-200</span> </h5>
+
+                    <img id="diceImage1" src="/assets/1-97fa746e.png" height="100" alt="">
+                   
+                    <div id="player-1-status">
+                        <button id="rollBtn" class="fw-bold btn btn-success" type="button">Roll</button>
+                        <button id="passBtn" class="fw-bold btn btn-yellow" type="button">Pass</button>
+                    </div>
+                </div>
+             
+                
+                </div>
+                <div id="betReason" class="d-flex justify-content-center align-items-center col-sm-6 h3 text-center">
+                    <div>
+                        <img src="/assets/logo-8fca3c24.png" class="" height="100" alt="">
+                        <h1 class="fw-bold">bet FoR</h1>
+                        <h1 class="fw-bold display-1" id="betReicpetext"></h1>
+                        <img src="/assets/sandwich-ba129efc.png" class="betImage" height="300" alt="">
+                    </div>
+                </div>
+                <div class="col-12 display-3 col-sm-3 h3 text-center d-flex justify-content-center align-items-center">
+                    <div>
+                    <h3  id="player2Name" class="fw-bold display-4 text-success"></h3>
+                    <h5 class="fw-bold h4">Current Score: <span id="player-1-total-score">60</span>  </h5>
+                    <h5 class="fw-bold h4">Total Score: <span id="player-2-total-score">90</span> </h5>
+
+                    <img id="diceImage2" src="/assets/3-a122adb2.png" height="100" alt="">
+                   
+                    <div id="player-2-status">
+                        <button id="rollBtn" class="fw-bold btn btn-success" type="button">Roll</button>
+                        <button id="passBtn" class="fw-bold btn btn-yellow" type="button">Pass</button>
+                    </div>                </div>
+                </div>
+            </div>
+        </div>
+      </div>
+      
    
       
-      <h1 class="text-center">let the game begin</h1>
    
 </body>
 </html>

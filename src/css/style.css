@@ -1,1 +1,47 @@
 @import "bootstrap/dist/css/bootstrap";
+
+.container-fluid {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 100vh !important;
+}
+.btn-yellow {
+  background-color: #fac835;
+}
+
+.btn-yellow:hover {
+  background-color: #e3b21e;
+}
+
+/* @keyframes rollDice {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(180deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#gameStep .rolling {
+  animation: rollDice 2s infinite;
+} */
+
+@media (max-width: 600px) {
+  .betImage {
+    height: 200px !important;
+  }
+  #diceImage1,
+  #diceImage2 {
+    height: 70px !important;
+  }
+}
