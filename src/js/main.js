@@ -78,6 +78,46 @@ const beginGame = () => {
   player1Name.textContent = p1Name;
   player2Name.textContent = p2Name;
 };
+
+const checkWinner = () => {
+  if (totalScore[activePlayer - 1] >= 50) {
+    gameStep.style.display = "none";
+    resultStep.style.display = "block";
+
+    let winner, opponent;
+    if (activePlayer == 1) {
+      winner = p1Name;
+      opponent = p2Name;
+    } else {
+      winner = p2Name;
+      opponent = p1Name;
+    }
+    console.log("winner", winner, activePlayer);
+
+    document.getElementById("winner").textContent = winner;
+    let opponents = document.getElementsByClassName("opponent");
+    document.getElementById("wonRecipe").textContent = betRecipe.value;
+    for (var i = 0; i < opponents.length; i++) {
+      opponents[i].textContent = opponent;
+    }
+
+    var currentDate = new Date();
+
+    var currentHour = currentDate.getHours();
+    var wishes;
+    if (currentHour >= 5 && currentHour < 12) {
+      wishes = "Morning";
+    } else if (currentHour >= 12 && currentHour < 17) {
+      wishes = "Afternoon";
+    } else if (currentHour >= 17 && currentHour < 21) {
+      wishes = "Evening";
+    } else {
+      wishes = "Night";
+    }
+    document.getElementById("wishes").textContent = wishes;
+  }
+};
+
 const changeDice = () => {
   console.log("active palyer is", activePlayer);
   let diceImage = document.getElementById("diceImage" + activePlayer);
@@ -85,7 +125,11 @@ const changeDice = () => {
   let dice_no = Math.floor(Math.random() * 6);
   dice_no = dice_no + 1;
   if (dice_no == 1) {
-    totalScore[activePlayer - 1] = totalScore[activePlayer - 1] + temp_score;
+    totalScore[activePlayer - 1] = Math.floor(
+      (totalScore[activePlayer - 1] + temp_score) / 2
+    );
+
+    checkWinner();
 
     temp_score = 0;
     document.getElementById(
@@ -133,40 +177,7 @@ const switchPlayerTo = (currentplayer) => {
   document.getElementById(
     "player-" + activePlayer + "-total-score"
   ).textContent = totalScore[activePlayer - 1];
-  if (totalScore[activePlayer - 1] >= 50) {
-    gameStep.style.display = "none";
-    let winner, opponent;
-    if (activePlayer == 1) {
-      winner = p1Name;
-      opponent = p2Name;
-    } else {
-      winner = p2Name;
-      opponent = p1Name;
-    }
-    console.log("winner", winner, activePlayer);
-
-    document.getElementById("winner").textContent = winner;
-    let opponents = document.getElementsByClassName("opponent");
-    document.getElementById("wonRecipe").textContent = betRecipe.value;
-    for (var i = 0; i < opponents.length; i++) {
-      opponents[i].textContent = opponent;
-    }
-
-    var currentDate = new Date();
-
-    var currentHour = currentDate.getHours();
-    var wishes;
-    if (currentHour >= 5 && currentHour < 12) {
-      wishes = "Morning";
-    } else if (currentHour >= 12 && currentHour < 17) {
-      wishes = "Afternoon";
-    } else if (currentHour >= 17 && currentHour < 21) {
-      wishes = "Evening";
-    } else {
-      wishes = "Night";
-    }
-    document.getElementById("wishes").textContent = wishes;
-  }
+  checkWinner();
   activePlayer = currentplayer;
 
   console.log("shifiting to player", activePlayer);
