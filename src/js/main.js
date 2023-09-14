@@ -102,7 +102,22 @@ const changeDice = () => {
     ).textContent = temp_score;
     console.log("else temp score", temp_score);
   }
-  let image = `../images/${dice_no}.png`;
+  // let image = `../images/${dice_no}.png`;
+  let image;
+  if (dice_no == 1) {
+    image = one;
+  } else if (dice_no == 2) {
+    image = two;
+  } else if (dice_no == 3) {
+    image = three;
+  } else if (dice_no == 4) {
+    image = four;
+  } else if (dice_no == 5) {
+    image = five;
+  } else {
+    image = six;
+  }
+  // let image = `images/${dice_no}.png`;
   diceImage.setAttribute("src", image);
   console.log(dice_no);
   diceImage.classList.remove("rolling");

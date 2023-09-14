@@ -38,7 +38,10 @@
 
 @media (max-width: 600px) {
   .betImage {
-    height: 200px !important;
+    height: 100px !important;
+  }
+  .logo {
+    height: 70px !important;
   }
   #diceImage1,
   #diceImage2 {
