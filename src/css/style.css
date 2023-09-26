@@ -37,6 +37,10 @@
 } */
 
 @media (max-width: 600px) {
+  .reversed-text {
+    transform: rotate(180deg);
+    display: inline-block;
+  }
   .betImage {
     height: 100px !important;
   }
